@@ -1,0 +1,12 @@
+#!/bin/bash
+
+NAME="hushlogin"
+FILE="$HOME/.$NAME"
+
+if [ -L "$FILE" ]; then
+  echo "Failed to install $NAME plug-in: "
+  echo "  $FILE exists as a symbolic link."
+elif [ ! -f "$FILE" ]; then
+  touch "$FILE" && \
+    echo "Installed $NAME plug-in."
+fi
